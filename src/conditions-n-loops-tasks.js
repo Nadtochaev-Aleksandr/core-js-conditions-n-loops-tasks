@@ -73,10 +73,8 @@ function getMaxNumber(a, b, c) {
  * {x: 1, y: 1}, {x: 2, y: 8} => false
  * {x: 1, y: 1}, {x: 2, y: 8} => false
  */
-function canQueenCaptureKing(queen, king) {
-  if (queen.x == king.x || queen.y == king.y) {
-    return true;
-  }
+function canQueenCaptureKing(/* queen, king */) {
+  throw new Error('Not implemented');
 }
 
 /**
@@ -97,8 +95,21 @@ function canQueenCaptureKing(queen, king) {
  *  2, 2, 5   => false
  *  3, 0, 3   => false
  */
-function isIsoscelesTriangle(/* a, b, c */) {
-  throw new Error('Not implemented');
+function isIsoscelesTriangle(a, b, c) {
+  if (a === b && b === c && a === c) {
+    return true;
+  }
+  const cosC = (a ** 2 + b ** 2 - c ** 2) / (2 * a * b);
+  const cosB = (a ** 2 + c ** 2 - b ** 2) / (2 * a * c);
+  const cosA = (c ** 2 + b ** 2 - a ** 2) / (2 * c * b);
+  if (
+    (a === b && cosC > -1 && cosC < 1) ||
+    (a === c && cosB > -1 && cosB < 1) ||
+    (c === b && cosA > -1 && cosA < 1)
+  ) {
+    return true;
+  }
+  return false;
 }
 
 /**
@@ -115,8 +126,60 @@ function isIsoscelesTriangle(/* a, b, c */) {
  *  10  => X
  *  26  => XXVI
  */
-function convertToRomanNumerals(/* num */) {
-  throw new Error('Not implemented');
+function convertToRomanNumerals(num) {
+  let resultString = '';
+  const romeOne = 'I';
+  const romeFour ='IV'
+  const romeFive = 'V';
+  const romeNine ='IX'
+  const romeTen = 'X';
+  let intengerRsultDivision;
+  let remainderDivision;
+  if (Math.floor(num / 10) > 0) {
+    intengerRsultDivision = Math.floor(num / 10);
+    remainderDivision = num % 10;
+    for (let i; i <= intengerRsultDivision; i += 1) {
+      resultString += romeTen;
+    }
+    if (remainderDivision === 9) {
+      resultString += romeNine;
+    } else if (Math.floor(remainderDivision / 5) > 0) {
+      intengerRsultDivision = Math.floor(remainderDivision / 5);
+      remainderDivision = remainderDivision % 5;
+      for (let i; i <= intengerRsultDivision; i += 1) {
+        resultString += romeFive;
+      }
+      if (remainderDivision === 4) {
+        resultString += romeFour;
+      } else if ((Math.floor(remainderDivision / 1)) > 0) {
+        intengerRsultDivision = Math.floor(remainderDivision / 1);
+        remainderDivision = remainderDivision % 1;
+        for (let i; i <= intengerRsultDivision; i += 1) {
+        resultString += romeOne;
+        }
+      }
+    }
+  } else {
+    remainderDivision = num % 10;
+    if (remainderDivision === 9) {
+      resultString += romeNine;
+      } else if (Math.floor(remainderDivision / 5) > 0) {
+      intengerRsultDivision = Math.floor(remainderDivision / 5);
+      remainderDivision = remainderDivision % 5;
+      for (let i; i <= intengerRsultDivision; i += 1) {
+        resultString += romeFive;
+      }
+      if (remainderDivision === 4) {
+        resultString += romeFour;
+      } else if ((Math.floor(remainderDivision / 1)) > 0) {
+        intengerRsultDivision = Math.floor(remainderDivision / 1);
+        remainderDivision = remainderDivision % 1;
+        for (let i; i <= intengerRsultDivision; i += 1) {
+        resultString += romeOne;
+        }
+      }
+    }
+  }
 }
 
 /**
