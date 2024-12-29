@@ -129,33 +129,33 @@ function isIsoscelesTriangle(a, b, c) {
 function convertToRomanNumerals(num) {
   let resultString = '';
   const romeOne = 'I';
-  const romeFour ='IV'
+  const romeFour = 'IV';
   const romeFive = 'V';
-  const romeNine ='IX'
+  const romeNine = 'IX';
   const romeTen = 'X';
   let intengerRsultDivision;
   let remainderDivision;
   if (Math.floor(num / 10) > 0) {
     intengerRsultDivision = Math.floor(num / 10);
     remainderDivision = num % 10;
-    for (let i; i <= intengerRsultDivision; i += 1) {
+    for (let i = 1; i <= intengerRsultDivision; i += 1) {
       resultString += romeTen;
     }
     if (remainderDivision === 9) {
       resultString += romeNine;
-    } else if (Math.floor(remainderDivision / 5) > 0) {
+    } else {
       intengerRsultDivision = Math.floor(remainderDivision / 5);
-      remainderDivision = remainderDivision % 5;
-      for (let i; i <= intengerRsultDivision; i += 1) {
+      remainderDivision %= 5;
+      for (let i = 1; i <= intengerRsultDivision; i += 1) {
         resultString += romeFive;
       }
       if (remainderDivision === 4) {
         resultString += romeFour;
-      } else if ((Math.floor(remainderDivision / 1)) > 0) {
+      } else {
         intengerRsultDivision = Math.floor(remainderDivision / 1);
-        remainderDivision = remainderDivision % 1;
-        for (let i; i <= intengerRsultDivision; i += 1) {
-        resultString += romeOne;
+        remainderDivision %= 1;
+        for (let i = 1; i <= intengerRsultDivision; i += 1) {
+          resultString += romeOne;
         }
       }
     }
@@ -163,23 +163,24 @@ function convertToRomanNumerals(num) {
     remainderDivision = num % 10;
     if (remainderDivision === 9) {
       resultString += romeNine;
-      } else if (Math.floor(remainderDivision / 5) > 0) {
+    } else {
       intengerRsultDivision = Math.floor(remainderDivision / 5);
-      remainderDivision = remainderDivision % 5;
-      for (let i; i <= intengerRsultDivision; i += 1) {
+      remainderDivision %= 5;
+      for (let i = 1; i <= intengerRsultDivision; i += 1) {
         resultString += romeFive;
       }
       if (remainderDivision === 4) {
         resultString += romeFour;
-      } else if ((Math.floor(remainderDivision / 1)) > 0) {
+      } else {
         intengerRsultDivision = Math.floor(remainderDivision / 1);
-        remainderDivision = remainderDivision % 1;
-        for (let i; i <= intengerRsultDivision; i += 1) {
-        resultString += romeOne;
+        remainderDivision %= 1;
+        for (let i = 1; i <= intengerRsultDivision; i += 1) {
+          resultString += romeOne;
         }
       }
     }
   }
+  return resultString;
 }
 
 /**
