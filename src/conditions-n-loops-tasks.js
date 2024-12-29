@@ -198,9 +198,170 @@ function convertToRomanNumerals(num) {
  *  '10,5'    => 'one zero point five'
  *  '1950.2'  => 'one nine five zero point two'
  */
-function convertNumberToString(/* numberStr */) {
-  throw new Error('Not implemented');
+function convertNumberToString(numberStr) {
+  let resultstring = '';
+  for (let i = 0; i < numberStr.length; i += 1) {
+    if (i < numberStr.length - 1) {
+      switch (numberStr[i]) {
+        case '-':
+          resultstring += 'minus';
+          resultstring += ' ';
+          break;
+        case '0':
+          resultstring += 'zero';
+          resultstring += ' ';
+          break;
+        case '.':
+          resultstring += 'point';
+          resultstring += ' ';
+          break;
+        case ',':
+          resultstring += 'point';
+          resultstring += ' ';
+          break;
+        case '1':
+          resultstring += 'one';
+          resultstring += ' ';
+          break;
+        case '2':
+          resultstring += 'two';
+          resultstring += ' ';
+          break;
+        case '3':
+          resultstring += 'three';
+          resultstring += ' ';
+          break;
+        case '4':
+          resultstring += 'four';
+          resultstring += ' ';
+          break;
+        case '5':
+          resultstring += 'five';
+          resultstring += ' ';
+          break;
+        case '6':
+          resultstring += 'six';
+          resultstring += ' ';
+          break;
+        case '7':
+          resultstring += 'seven';
+          resultstring += ' ';
+          break;
+        case '8':
+          resultstring += 'eight';
+          resultstring += ' ';
+          break;
+        case '9':
+          resultstring += 'nine';
+          resultstring += ' ';
+          break;
+        default:
+          console.log(`попавло в default`);
+      }
+    } else {
+      switch (numberStr[i]) {
+        case '-':
+          resultstring += 'minus';
+          break;
+        case '0':
+          resultstring += 'zero';
+          break;
+        case '.':
+          resultstring += 'point';
+          break;
+        case ',':
+          resultstring += 'point';
+          break;
+        case '1':
+          resultstring += 'one';
+          break;
+        case '2':
+          resultstring += 'two';
+          break;
+        case '3':
+          resultstring += 'three';
+          break;
+        case '4':
+          resultstring += 'four';
+          break;
+        case '5':
+          resultstring += 'five';
+          break;
+        case '6':
+          resultstring += 'six';
+          break;
+        case '7':
+          resultstring += 'seven';
+          break;
+        case '8':
+          resultstring += 'eight';
+          break;
+        case '9':
+          resultstring += 'nine';
+          break;
+        default:
+          console.log(`попавло в default`);
+      }
+    }
+  }
+  console.log(`Итоговый результат после завершения цикла "${resultstring}"`);
+  return resultstring;
 }
+
+// function convertNumberToString(numberStr) {
+//   let resultstring = '';
+//   const zero = 'zero';
+//   const one = 'one';
+//   const two = 'two';
+//   const three = 'three';
+//   const four = 'four';
+//   const five = 'five';
+//   const six = 'six';
+//   const seven = 'seven';
+//   const eight = 'eight';
+//   const nine = 'nine';
+//   const point = 'point';
+//   const minus = 'minus';
+//   for (let i = 0; i < numberStr.length; i += 1) {
+//     if (numberStr[i] === minus) {
+//       resultstring += minus;
+//     }
+//     if (numberStr[i] === zero) {
+//       resultstring += zero;
+//     }
+//     if (numberStr[i] === point) {
+//       resultstring += point;
+//     }
+//     if (numberStr[i] === one) {
+//       resultstring += one;
+//     }
+//     if (numberStr[i] === two) {
+//       resultstring += two;
+//     }
+//     if (numberStr[i] === three) {
+//       resultstring += three;
+//     }
+//     if (numberStr[i] === four) {
+//       resultstring += four;
+//     }
+//     if (numberStr[i] === five) {
+//       resultstring += five;
+//     }
+//     if (numberStr[i] === six) {
+//       resultstring += six;
+//     }
+//     if (numberStr[i] === seven) {
+//       resultstring += seven;
+//     }
+//     if (numberStr[i] === eight) {
+//       resultstring += eight;
+//     }
+//     if (numberStr[i] === nine) {
+//       resultstring += nine;
+//     }
+//   }
+//   return resultstring;
+// }
 
 /**
  * Determines whether a string is a palindrome.
