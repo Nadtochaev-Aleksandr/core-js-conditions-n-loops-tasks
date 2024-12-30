@@ -256,7 +256,6 @@ function convertNumberToString(numberStr) {
           resultstring += ' ';
           break;
         default:
-          console.log(`попавло в default`);
       }
     } else {
       switch (numberStr[i]) {
@@ -300,68 +299,11 @@ function convertNumberToString(numberStr) {
           resultstring += 'nine';
           break;
         default:
-          console.log(`попавло в default`);
       }
     }
   }
-  console.log(`Итоговый результат после завершения цикла "${resultstring}"`);
   return resultstring;
 }
-
-// function convertNumberToString(numberStr) {
-//   let resultstring = '';
-//   const zero = 'zero';
-//   const one = 'one';
-//   const two = 'two';
-//   const three = 'three';
-//   const four = 'four';
-//   const five = 'five';
-//   const six = 'six';
-//   const seven = 'seven';
-//   const eight = 'eight';
-//   const nine = 'nine';
-//   const point = 'point';
-//   const minus = 'minus';
-//   for (let i = 0; i < numberStr.length; i += 1) {
-//     if (numberStr[i] === minus) {
-//       resultstring += minus;
-//     }
-//     if (numberStr[i] === zero) {
-//       resultstring += zero;
-//     }
-//     if (numberStr[i] === point) {
-//       resultstring += point;
-//     }
-//     if (numberStr[i] === one) {
-//       resultstring += one;
-//     }
-//     if (numberStr[i] === two) {
-//       resultstring += two;
-//     }
-//     if (numberStr[i] === three) {
-//       resultstring += three;
-//     }
-//     if (numberStr[i] === four) {
-//       resultstring += four;
-//     }
-//     if (numberStr[i] === five) {
-//       resultstring += five;
-//     }
-//     if (numberStr[i] === six) {
-//       resultstring += six;
-//     }
-//     if (numberStr[i] === seven) {
-//       resultstring += seven;
-//     }
-//     if (numberStr[i] === eight) {
-//       resultstring += eight;
-//     }
-//     if (numberStr[i] === nine) {
-//       resultstring += nine;
-//     }
-//   }
-//   return resultstring;
-// }
 
 /**
  * Determines whether a string is a palindrome.
@@ -375,8 +317,21 @@ function convertNumberToString(numberStr) {
  *  '0123210'   => true
  *  'qweqwe'    => false
  */
-function isPalindrome(/* str */) {
-  throw new Error('Not implemented');
+function isPalindrome(str) {
+  function myreverseString(strng) {
+    let resultString = '';
+    for (let i = strng.length - 1; i >= 0; i -= 1) {
+      resultString += strng[i];
+    }
+    return resultString;
+  }
+
+  const palinomeString = myreverseString(str);
+
+  if (str === palinomeString) {
+    return true;
+  }
+  return false;
 }
 
 /**
@@ -393,8 +348,15 @@ function isPalindrome(/* str */) {
  *  'qwerty', 'Q'     => -1
  *  'qwerty', 'p'     => -1
  */
-function getIndexOf(/* str, letter */) {
-  throw new Error('Not implemented');
+function getIndexOf(str, letter) {
+  let firstIndexLetter = -1;
+  for (let i = 0; i <= str.length - 1; i += 1) {
+    if (str[i] === letter) {
+      firstIndexLetter = i;
+      break;
+    }
+  }
+  return firstIndexLetter;
 }
 
 /**
@@ -412,8 +374,20 @@ function getIndexOf(/* str, letter */) {
  *  12345, 0    => false
  *  12345, 6    => false
  */
-function isContainNumber(/* num, digit */) {
-  throw new Error('Not implemented');
+function isContainNumber(num, digit) {
+  let variableForCheck = 0;
+  let number = num;
+  while (number > 0) {
+    const lastNumElrmrnt = number % 10;
+    if (lastNumElrmrnt === digit) {
+      variableForCheck += 1;
+    }
+    number = Math.floor(number / 10);
+  }
+  if (variableForCheck === 0) {
+    return false;
+  }
+  return true;
 }
 
 /**
