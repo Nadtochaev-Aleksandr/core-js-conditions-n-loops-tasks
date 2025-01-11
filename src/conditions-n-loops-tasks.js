@@ -489,6 +489,31 @@ function rotateMatrix(/* matrix */) {
 function sortByAsc(/* arr */) {
   throw new Error('Not implemented');
 }
+// const newArr = arr;
+// console.log(`введенный массив ${newArr}`);
+// for (let i = 0; i < newArr.length; i += 1) {
+//   let minElement;
+//   let someElement;
+//   console.log(
+//     `итерация ${i + 1}, элемент массива с индексом i является - ${newArr[i]}`
+//   );
+//   for (let j = i + 1; j < newArr.length; j += 1) {
+//     console.log(
+//       `дублирующая итерация ${
+//         j + 1
+//       }, элемент массива с индексом j является - ${newArr[j]}`
+//     );
+//     if (newArr[j] < newArr[i]) {
+//       minElement = newArr[j];
+//       someElement = newArr[i];
+//       newArr[i] = minElement;
+//       newArr[j] = someElement;
+//       console.log(`иззмененный массив ${newArr}`);
+//     }
+//   }
+// }
+// arr = newArr;
+// return arr;
 
 /**
  * Shuffles characters in a string so that the characters with an odd index are moved to the end of the string at each iteration.
